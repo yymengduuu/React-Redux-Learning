@@ -367,6 +367,27 @@ const fetchData = async (query) => {
 -	useDispatch 可以发送 action（执行某个行为，更新 state）
 -	useSelector 可以访问 Redux 中的某一段 state
 
+## Core gets
+-	Store（状态仓库）：全局状态集中存储，只有一个单一 store。
+-	State（状态）：不可变对象，描述当前应用的数据快照。
+-	Action（动作）：描述“发生了什么”的普通 JS 对象（必须有 type 字段）。
+-	Reducer（状态更新器）：接收当前 state 和 action，返回新的 state。
+-	Dispatch：发送 action 给 reducer 来触发状态更新。
+-	Selector：从 store 中读取所需状态。
+
+## Mutiple Props
+prepare() 用于拆分 action 的参数逻辑（如传多个参数）：
+```
+requestLoan: {
+  prepare(amount, purpose) {
+    return { payload: { amount, purpose } };
+  },
+  reducer(state, action) {
+    ...
+  }
+}
+```
+
 ## Hooks
 
 ### useSelector: 它用来读取 Redux store 中的状态。
