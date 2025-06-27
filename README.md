@@ -494,4 +494,20 @@ const isLoading = navigation.state === "loading";
 - "submitting": 正在提交表单，比如 action 被触发中
 
 
+## 嵌套路由 + <Outlet />
+
+```
+// app.js
+<Route path="/" element={<AppLayout />}>
+  <Route path="menu" element={<Menu />} />
+</Route>
+```
+---
+```
+// AppLayout.jsx
+<Header />
+<Outlet />  ← 这里显示 <Menu /> 页面
+<Footer />
+```
+
 
