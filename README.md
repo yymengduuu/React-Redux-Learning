@@ -410,3 +410,22 @@ dispatch(async (dispatch, getState) => {
   dispatch({ type: "account/deposit", payload: data });
 });
 ```
+
+# React-Router-Learning
+React Router 是一个用于构建单页应用（SPA）的路由系统，通过监听 URL 变化，无需刷新页面就能切换视图组件。
+
+**Data API Set up**
+```
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/menu", element: <Menu />, loader: menuLoader },
+      { path: "/order/:id", element: <Order /> },
+    ],
+  },
+]);
+
+<RouterProvider router={router} />
+```
