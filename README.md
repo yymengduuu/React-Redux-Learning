@@ -510,4 +510,41 @@ const isLoading = navigation.state === "loading";
 <Footer />
 ```
 
+## 数据加载（loader）
+
+App.js
+```
+import Menu, { loader as menuLoader } from "./features/menu/Menu";
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    erroElement: <Error />,
+
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+        loader: menuLoader,
+        erroElement: <Error />,
+      }
+    ],
+  },
+]);
+```
+
+Menu.jsx
+```
+import { useLoaderData } from "react-router-dom";
+
+export async function loader() {
+  const menu = await getMenu();
+  return menu;
+}
+
+export default Menu;
+```
 
