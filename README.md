@@ -430,9 +430,11 @@ const router = createBrowserRouter([
 <RouterProvider router={router} />
 ```
 
-## 路由跳转方式
+## Hooks
 
-### Use <Link> – For Declarative Navigation
+### 编程式导航，主动跳转页面
+
+#### Use <Link> – For Declarative Navigation
 
 ```
 import { Link } from "react-router-dom";
@@ -444,7 +446,7 @@ import { Link } from "react-router-dom";
 <Link to="/menu">Go to Menu</Link>
 ```
 
-### Use useNavigate() – For Programmatic Navigation
+#### Use useNavigate() – For Programmatic Navigation
 
 ```
 import { useNavigate } from "react-router-dom";
@@ -463,3 +465,33 @@ const handleClick = () => {
   }
 };
 ```
+
+### 追踪路由跳转过程中的加载状态: useNavigation()
+```
+import { useNavigation } from "react-router-dom";
+
+const navigation = useNavigation();
+
+const isLoading = navigation.state === "loading";
+```
+
+**返回对象结构**
+```
+{
+  state: "idle" | "submitting" | "loading",
+  location,          // 跳转目标的位置对象（可选）
+  formMethod,        // 如果是表单提交，这里是 POST / GET
+  formAction,
+  formEncType,
+  formData           // 包含正在提交的表单数据（可选）
+}
+```
+
+**三个典型状态说明**
+
+- "idle": 当前没有跳转/提交操作，页面稳定
+- "loading": 跳转到了一个有 loader 的页面，正在加载中
+- "submitting": 正在提交表单，比如 action 被触发中
+
+
+
