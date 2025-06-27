@@ -432,7 +432,7 @@ const router = createBrowserRouter([
 
 ## Hooks
 
-### 编程式导航，主动跳转页面
+### Linking between Routes
 
 #### Use <Link> – For Declarative Navigation
 
