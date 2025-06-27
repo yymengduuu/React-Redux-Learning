@@ -494,7 +494,7 @@ const isLoading = navigation.state === "loading";
 - "submitting": 正在提交表单，比如 action 被触发中
 
 
-## 嵌套路由 + <Outlet />
+## 嵌套路由 & <Outlet />
 
 ```
 // app.js
