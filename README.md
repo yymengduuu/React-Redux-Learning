@@ -433,9 +433,33 @@ const router = createBrowserRouter([
 ## 路由跳转方式
 
 ### Use <Link> – For Declarative Navigation
+
+```
+import { Link } from "react-router-dom";
+```
+
 用在JSX 结构中直接跳转
 适合出现在页面中，比如按钮、菜单栏、卡片列表等：
 ```
 <Link to="/menu">Go to Menu</Link>
 ```
 
+### Use useNavigate() – For Programmatic Navigation
+
+```
+import { useNavigate } from "react-router-dom";
+```
+
+用在事件处理函数中根据逻辑跳转:
+```
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+const handleClick = () => {
+  if (loggedIn) {
+    navigate("/dashboard");
+  } else {
+    navigate("/login");
+  }
+};
+```
