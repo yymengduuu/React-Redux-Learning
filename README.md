@@ -414,7 +414,7 @@ dispatch(async (dispatch, getState) => {
 # React-Router-Learning
 React Router 是一个用于构建单页应用（SPA）的路由系统，通过监听 URL 变化，无需刷新页面就能切换视图组件。
 
-**Data API Set up**
+## Data API Set up
 ```
 const router = createBrowserRouter([
   {
@@ -429,3 +429,13 @@ const router = createBrowserRouter([
 
 <RouterProvider router={router} />
 ```
+
+## 路由跳转方式
+
+### Use <Link> – For Declarative Navigation
+用在JSX 结构中直接跳转
+适合出现在页面中，比如按钮、菜单栏、卡片列表等：
+```
+<Link to="/menu">Go to Menu</Link>
+```
+
