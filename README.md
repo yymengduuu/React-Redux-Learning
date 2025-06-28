@@ -446,6 +446,27 @@ import { Link } from "react-router-dom";
 <Link to="/menu">Go to Menu</Link>
 ```
 
+#### Use <NavLink> – For Highlighting Declarative Navigation
+```
+import { NavLink } from "react-router-dom";
+```
+当你访问页面时，这个链接会自动加一个 active 的 class（默认是 active），你可以在 CSS 里专门为这个 class 添加样式，例如加粗或变色，从而实现导航高亮。比如你可以写一个 CSS：
+```
+/* AppNav.module.css */
+.nav a.active {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+```
+---
+
+当你访问 /cities 页面时，用户可以看到“我现在在哪个页面”这个视觉反馈
+
+```
+<NavLink to="cities">Cities</NavLink>
+```
+
+
 #### Use useNavigate() – For Programmatic Navigation
 
 ```
