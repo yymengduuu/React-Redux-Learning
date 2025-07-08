@@ -364,8 +364,8 @@ const fetchData = async (query) => {
 -	store.js 用来储存所有的 reducer，并需要引入 configureStore 和每个 slice。
 ```
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './features/user/userSlice';
-import cartReducer from './features/cart/cartSlice';
+import aaaReducer from './features/user/aaaSlice';
+import bbbReducer from './features/cart/bbbSlice';
 
 const store = configureStore({
   reducer: {
@@ -377,6 +377,20 @@ const store = configureStore({
 export default store;
 ```
 -	每个 slice 文件中需要创建 createSlice，并通过 Destructured Export of Action Creators（如 export const { createCustomer } = customerSlice.actions）导出。
+
+```
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+}
+
+const cartSlice = createSlice({
+  name: 'cart',
+  initialState,
+  reducers: {
+}
+```
+
 -	接下来，其他组件通过：
 -	useDispatch 可以发送 action（执行某个行为，更新 state）
 -	useSelector 可以访问 Redux 中的某一段 state
