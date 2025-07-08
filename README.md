@@ -362,12 +362,26 @@ const fetchData = async (query) => {
 
 # Redux-Learning
 -	store.js 用来储存所有的 reducer，并需要引入 configureStore 和每个 slice。
+```
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './features/user/userSlice';
+import cartReducer from './features/cart/cartSlice';
+
+const store = configureStore({
+  reducer: {
+    aaa: aaaReducer,
+    bbb: bbbReducer,
+  },
+});
+
+export default store;
+```
 -	每个 slice 文件中需要创建 createSlice，并通过 Destructured Export of Action Creators（如 export const { createCustomer } = customerSlice.actions）导出。
 -	接下来，其他组件通过：
 -	useDispatch 可以发送 action（执行某个行为，更新 state）
 -	useSelector 可以访问 Redux 中的某一段 state
 
-## Core gets
+## Core Gets
 -	Store（状态仓库）：全局状态集中存储，只有一个单一 store。
 -	State（状态）：不可变对象，描述当前应用的数据快照。
 -	Action（动作）：描述“发生了什么”的普通 JS 对象（必须有 type 字段）。
