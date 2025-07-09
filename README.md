@@ -426,6 +426,14 @@ requestLoan: {
 - 向 Redux 发送 action 改状态
 - 用户交互回调中
 
+### createSelector： 创建一个带缓存的 selector，避免重复计算
+```
+createSelector(
+  [inputSelectors],// 传入一个 selector 数组
+  resultFunction // 当 selector 的值改变时才执行
+)
+```
+
 ## API in Redux: Thunk
 - 处理 API 请求（比如登录、加载数据）
 - 根据 state 条件 dispatch 不同的 action
