@@ -483,10 +483,13 @@ import { Link } from "react-router-dom";
 ```
 
 #### Use <NavLink> – For Highlighting Declarative Navigation
+
 ```
 import { NavLink } from "react-router-dom";
 ```
+
 当你访问页面时，这个链接会自动加一个 active 的 class（默认是 active），你可以在 CSS 里专门为这个 class 添加样式，例如加粗或变色，从而实现导航高亮。比如你可以写一个 CSS：
+
 ```
 /* AppNav.module.css */
 .nav a.active {
@@ -510,6 +513,7 @@ import { useNavigate } from "react-router-dom";
 ```
 
 用在事件处理函数中根据逻辑跳转:
+
 ```
 import { useNavigate } from "react-router-dom";
 
@@ -524,6 +528,7 @@ const handleClick = () => {
 ```
 
 #### 追踪路由跳转过程中的加载状态: useNavigation()
+
 ```
 import { useNavigation } from "react-router-dom";
 
@@ -531,6 +536,7 @@ const navigation = useNavigation();
 
 const isLoading = navigation.state === "loading";
 ```
+
 
 **返回对象结构**
 ```
