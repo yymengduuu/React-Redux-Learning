@@ -249,6 +249,8 @@ function handleSubmit(formData) {
 - local storage, API, websockets, DOM manipulation
 
 ## useRef Hook
+保存一个可变但不会引起组件重新渲染的值（类似“箱子”）
+
 - Provides a way to reference DOM nodes directly.
 
 - Does not cause re-renders.
@@ -261,13 +263,23 @@ function handleSubmit(formData) {
 
 3. Holding mutable values
 ```
-const inputRef = useRef(null)
-useEffect(() => {
-    inputRef.current.focus()
-}, [])
+const countRef = useRef(0);  // 不会因为组件更新而丢失
+
+function handleClick() {
+  countRef.current += 1;
+  console.log(countRef.current); // 每次打印的是累加的值
+}
 ```
 
 ## useEffect Hook
+组件副作用逻辑的入口
+
+📌 常用场景：
+	•	设置定时器（setInterval, setTimeout）
+	•	发请求（fetch）
+	•	添加事件监听器
+	•	清理副作用（如 clearInterval）
+ 
 - []: Runs once after the initial render
 
 - [count]: Runs every time count changes
